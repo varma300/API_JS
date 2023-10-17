@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Define the API endpoint URL
+        const apiURL = 'https://dummyjson.com/quotes'; 
+
+        //function for frtch the datafrom the API
+        function fetchData(){
+            fetch(apiURL)
+                .then((response)=>{
+                    if(!response.ok){
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then((data)=>{
+                    // Handle the featch data here
+                    console.log('featched data : ',data);
+                })
+                .catch((error)=> {
+                    // Handle the error
+                    console.error('Error : ', error)
+                })
+        }
+
+        // call the feachData function to initiate the API request
+        fetchData()
+
+
+    </script>
+</body>
+</html>
